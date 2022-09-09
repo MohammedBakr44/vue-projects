@@ -7,7 +7,7 @@
           <div
             v-for="chat in state.chats"
             :key="chat.message"
-            class="p-2 m-2 rounded text-white"
+            class="p-2 m-2 rounded text-white overflow-y-scroll"
             :class="
               chat.userId == state.userId
                 ? 'text-right bg-blue-800'
