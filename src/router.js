@@ -34,13 +34,12 @@ const router = createRouter({
 
 router.beforeEach((to, _, next) => {
   const store = loginState();
-  const { isLoggedIn } = JSON.parse(JSON.stringify(store));
   const { setLoginOpen } = store;
   if (to.meta.middleware) {
     const middleware = import(`./middleware/${to.meta.middleware}`);
     if (middleware) {
       middleware.then((module) =>
-        module.default(next, isLoggedIn, setLoginOpen)
+        module.default(next, store.isLoggedIn, setLoginOpen)
       );
     } else {
       next();
