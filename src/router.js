@@ -10,6 +10,7 @@ import Chat from "./pages/Chat.vue";
 import UserCrud from "./pages/UserCrud.vue";
 import Tensorflow from "./pages/Tensorflow.vue";
 import { loginState } from "./store/index.js";
+import * as auth from "./middleware/auth";
 const routes = [
   { path: "/", component: Home },
   { path: "/dc-heroes", component: DcHeroes },
@@ -35,15 +36,8 @@ const router = createRouter({
 router.beforeEach((to, _, next) => {
   const store = loginState();
   const { setLoginOpen } = store;
-  if (to.meta.middleware) {
-    const middleware = require(`./middleware/${to.meta.middleware}`);
-    if (middleware) {
-      middleware.then((module) =>
-        module.default(next, store.isLoggedIn, setLoginOpen)
-      );
-    } else {
-      next();
-    }
+  if (to.meta.middleware == "auth") {
+    auth.default(next, store.isLoggedIn, setLoginOpen);
   } else {
     next();
   }
