@@ -3,11 +3,11 @@
     <div class="m-auto">
       <h1 class="text-center">Realtime chat</h1>
       <div class="border rounded-lg">
-        <div class="h-64 p-2">
+        <div class="h-64 p-2 overflow-y-scroll">
           <div
             v-for="chat in state.chats"
             :key="chat.message"
-            class="p-2 m-2 rounded text-white overflow-y-scroll"
+            class="p-2 m-2 rounded text-white"
             :class="
               chat.userId == state.userId
                 ? 'text-right bg-blue-800'
