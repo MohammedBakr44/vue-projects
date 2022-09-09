@@ -36,7 +36,7 @@ router.beforeEach((to, _, next) => {
   const store = loginState();
   const { setLoginOpen } = store;
   if (to.meta.middleware) {
-    const middleware = import(`./middleware/${to.meta.middleware}`);
+    const middleware = require(`./middleware/${to.meta.middleware}`);
     if (middleware) {
       middleware.then((module) =>
         module.default(next, store.isLoggedIn, setLoginOpen)
