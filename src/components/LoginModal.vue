@@ -21,7 +21,7 @@
               />
             </div>
             <div class="my-4">
-              <label>Passowrd</label>
+              <label>Password</label>
               <input
                 placeholder="Enter your password"
                 type="password"

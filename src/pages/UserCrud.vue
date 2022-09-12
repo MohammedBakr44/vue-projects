@@ -62,7 +62,7 @@ import { onMounted, reactive } from "vue";
 import axios from "axios";
 import Create from "../components/UserCurd/Create.vue";
 axios.defaults.baseURL =
-  "https://crudcrud.com/api/70b7a7b768ff47ac8c790252484315b3";
+  "https://crudcrud.com/api/2b6f189291204f1297b1eac619411fa9";
 export default {
   components: { Create },
   setup() {
